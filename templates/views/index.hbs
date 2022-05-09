@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Weather Forecast</title>
+        <link rel="icon" href="/images/weather-icon.png">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div class="main-content">
+            {{>header}}
+            <p>Use this site to get your weather!</p>
+            <form id="address" >
+                <input placeholder="Type location" name="addressInput">
+                <button>Get forecast</button>
+            </form>
+            <div id="render-dom"></div>
+            {{!-- <p id="p-one"></p>
+            <p id="p-two"></p> --}}
+        </div>
+
+        {{>footer}}
+        
+        <script src="/scripts/bundle.js"></script>
+    </body>
+
+</html>
