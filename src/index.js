@@ -40,7 +40,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
         name: 'Dusan Milenkovic',
-        message: 'Whatever you need just give us a call'
+        message: ''
     })
 })
 
