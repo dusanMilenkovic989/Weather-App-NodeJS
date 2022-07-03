@@ -1,20 +1,22 @@
 import { getForecast, generateDOM } from './utilities/functions'
 
-document.querySelector('#address').addEventListener('submit', (e) => {
+document.querySelector('#address').addEventListener('submit', async (e) => {
     e.preventDefault()
     const inputValue = e.target.elements.addressInput.value
 
     generateDOM('Loading...')
     
     if (typeof inputValue === 'string') {
-        getForecast(inputValue).then((data) => {
-            if (data.error) {
-                generateDOM(data.error)
+        try {
+            const { error } = await getForecast(inputValue)
+
+            if (error) {
+                generateDOM(error)
             } else {
                 generateDOM(undefined, data.location, data.forecast)
             }
-        }).catch((error) => {
-            generateDOM(error)
-        })
+        } catch (e) {
+            generateDOM(e)
+        }
     }
 })
